@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Seene leiukohad</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!--<script type="text/javascript" src="https://inaadress.maaamet.ee/inaadress/js/inaadress.min.js?d=20220510"></script>-->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-pip/leaflet-pip.min.js"></script>
+    <style>
+        .coord-label {
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+<div style="position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(255,255,255,0.85);padding:8px 20px;border-radius:8px;font-size:18px;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+    Paiguta leiukoht seene ala sisse
+</div>
+<div id="map" style="height: 100vh;"></div>
+<div id="toast" style="display:none; position:fixed; top:20px; left:50%; transform:translateX(-50%); background:#333; color:#fff; padding:12px 24px; border-radius:6px; z-index:9999; font-size:16px; box-shadow:0 2px 8px rgba(0,0,0,0.2);"></div>
+<script type="module">
+    import { addAreaRectangle, addAreaLabels, showToast, isInsideEstonia } from './map-area.js';
+
+    const map = L.map('map').setView([58.5953, 25.0136], 7); // Eesti keskpunkt
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+    addAreaRectangle(map);
+    addAreaLabels(map);
+
+    // 📍 Lae olemasolevad seenekohad
+    fetch('/api/mushrooms')
+        .then(res => res.json())
+        .then(data => {
+            data.forEach(feature => {
+                const coords = feature.geometry.coordinates;
+                const lat = coords[1].toFixed(2);
+                const lon = coords[0].toFixed(2);
+                const marker = L.marker([coords[1], coords[0]]).addTo(map);
+                const description = feature.properties.description || "Tundmatu seenekoht";
+                marker.bindTooltip(
+                    `<strong>${description}</strong><br>Koordinaadid: ${lat}, ${lon}`
+                );
+            });
+        });
+
+    // 📍 Uue lisamine kaardile klikkides
+    map.on('click', async function(e) {
+        const lat = e.latlng.lat;
+        const lon = e.latlng.lng;
+
+        if (!isInsideEstonia(lon, lat)) {
+            showToast(
+                `Punkt peab jääma seene ala sisse!<br>` +
+                `<small>Lubatud piirid:<br>` +
+                `Longitude (x): 23.5 – 28.29<br>` +
+                `Latitude (y): 57.9 – 59.5</small>`
+            );
+            return;
+        }
+
+        const description = prompt("Kirjeldus seente kohta:");
+        if (!description) return;
+
+        const geoJson = {
+            type: "Feature",
+            geometry: {
+                type: "Point",
+                coordinates: [lon, lat]
+            },
+            properties: {
+                description: description,
+            }
+        };
+
+        fetch('/api/mushrooms', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(geoJson)
+        }).then(() => location.reload());
+    });
+</script>
+</body>
+</html>

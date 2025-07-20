@@ -1,0 +1,14 @@
+Proovitöö Java/fullstack arendaja (GIS tiim)
+
+Ülesanne: Luua API teenused seene leiukohtade lisamiseks, kustutamiseks, muutmiseks ja pärimiseks. Ühte leiukohta iseloomustab selle identifikaator, asukoha koordinaadid ning kirjeldus, kuhu on vabateksti kujul võimalik märkida, mis seeni antud kohas leidub. Kõikidel teenustel kasutada sisend-väljundina GeoJSON formaati.
+Lisamine, kustutamne, muutmine käivad ühe objekti kaupa. Pärimine tagastab kõik hetkel olevad leiukohad. Andmed peavad salvestuma ja loetama andmebaasist. Teenused on kõigile vabad kasutada, autentimist ei ole vaja realiseerida.
+
+Boonusülesanne:
+Luua veebirakendus, kus on võimalik eelnevalt loodud teenuseid kasutades kuvada kaardil olemasolevaid seene leiukohti ning lisada ka uusi. Kaart peab olema interaktiivne – sisse-välja zoomitav, liigutatav ning piiratud Eesti ja lähiümbruse alaga. Kaardil peab olema taustana vabalt valitud avalikult kättesaadav aluskaart (Maa-amet, OpenStreetMap vms).
+Veebrakenduse avalehele minnes laetakse kõik leiukohad ning kuvatakse kaardil enda parema äranägemise järgi valitud kujundusega. Uue leiukoha lisamine toimub kaardil soovitud kohas hiirega klikkides. Olemasoleva leiukoha muutmise või kustutamise võimalust ei ole  veebirakendusel vaja.
+
+Tehnoloogilised nõuded:
+    • Java programmeerimiskeel. Võib vabal valikul lisada juurde sobivaid raamistikke, teeke.
+    • Andmebaasina PostgreSQL. Eraldi faili lisada andmebaasi tabelite loomise SQL skriptid, mis on vajalikud rakenduse tööks.
+    • Lisada lühijuhend, kuidas rakendust käima panna.
+    • Rakenduse kood üles seada avalikult kättesaadavasse GIT repositooriumi.

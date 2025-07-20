@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "65eb6569-383e-421e-8d66-05747eea552f",
+		"name": "Seene API",
+		"description": "Teostab päringud mushroom-map (seene rakenduse) andmebaasi.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10927616"
+	},
+	"item": [
+		{
+			"name": "kõik seened",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>ID</th>\r",
+							"        <th>Type</th>\r",
+							"        <th>Description</th>\r",
+							"        <th>Coordinates</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    {{#each response}}\r",
+							"        <tr>\r",
+							"            <td>{{id}}</td>\r",
+							"            <td>{{type}}</td>\r",
+							"            <td>{{properties.description}}</td>\r",
+							"            <td>{{geometry.coordinates}}</td>\r",
+							"        </tr>\r",
+							"    {{/each}}\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    return {response: pm.response.json()};\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/mushrooms",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"mushrooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lisa seen",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"Feature\",\r\n  \"properties\": {\r\n    \"description\": \"Puravik\"\r\n\r\n  },\r\n  \"geometry\": {\r\n    \"type\": \"Point\",\r\n    \"coordinates\": [26.56, 68.690]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/mushrooms",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"mushrooms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "muuda väärtust",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"Feature\",\r\n  \"properties\": {\r\n    \"description\": \"Kivipuravik\"\r\n\r\n  },\r\n  \"geometry\": {\r\n    \"type\": \"Point\",\r\n    \"coordinates\": [22.6336, 58.53220]\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/mushrooms/15",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"mushrooms",
+						"15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "kustuta objekt",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/mushrooms/19",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"mushrooms",
+						"19"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:8080",
+			"type": "default"
+		}
+	]
+}
