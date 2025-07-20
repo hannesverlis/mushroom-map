@@ -5,35 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="886ecd0d-fba1-4a75-bcd7-a04afe9a651c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Ekraanipilt.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Seene API.postman_collection.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Task.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/mushroom-map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/MushroomMapApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/controller/MushroomLocationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/dto/MushroomLocationGeoJsonDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/entity/MushroomLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/repository/MushroomLocationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ee/mushrooms/service/MushroomLocationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/map-area.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mushroom-map/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/mushroom-map/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +153,7 @@
       <workItem from="1752998269231" duration="10930000" />
       <workItem from="1753010725771" duration="1159000" />
       <workItem from="1753012109330" duration="805000" />
-      <workItem from="1753013283045" duration="7777000" />
+      <workItem from="1753013283045" duration="8126000" />
     </task>
     <servers />
   </component>
