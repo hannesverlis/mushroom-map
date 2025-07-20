@@ -36,15 +36,15 @@ public class MushroomLocationService {
             throw new IllegalArgumentException("Koordinaadid peavad jääma seene ala sisse.  lon >= 23.5 && lon <= 28.29 && lat >= 57.9 && lat <= 59.5");
         }
 
-        // Loome geomeetria objekti
+
         Point p = new GeometryFactory(new PrecisionModel(), 4326)
                 .createPoint(new Coordinate(lon, lat));
 
-        // Loome ja salvestame entiteedi
+
         MushroomLocation entity = new MushroomLocation(null, desc,  p);
         MushroomLocation saved = repository.save(entity);
 
-        // Tagasta GeoJSON DTO
+
         return toGeoJson(saved);
     }
 
@@ -81,7 +81,7 @@ public class MushroomLocationService {
     }
 
     public MushroomLocationGeoJsonDTO toGeoJson(MushroomLocation entity) {
-        // Eeldame, et sul on JTS Point tüüpi geomeetria
+
         double lon = entity.getLocation().getX();
         double lat = entity.getLocation().getY();
 

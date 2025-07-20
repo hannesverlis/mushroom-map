@@ -48,7 +48,7 @@ See rakendus võimaldab hallata ja visualiseerida seente leiukohti Eesti territo
    - Frontendis kuvatakse toast-teavitus.
 
 2. **Leiukohta ei leitud (ID puudub)**
-   - Kui proovida muuta või kustutada leiukohta, mida andmebaasis pole, viskab backend exceptioni:
+   - Kui proovida muuta leiukohta, mida andmebaasis pole, viskab backend exceptioni:
      ```
      ID-ga {id} asukohta ei leitud.
      ```

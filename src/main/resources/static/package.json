@@ -1,0 +1,20 @@
+{
+  "name": "mushroom-map-frontend",
+  "version": "1.0.0",
+  "description": "Seene leiukohtade kaardi front-end (Leaflet)",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8081",
+    "dev": "live-server --port=8081",
+    "build": "echo 'Staatiline front-end, buildi pole vaja'"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "keywords": ["leaflet", "map", "geojson", "spring boot", "mushroom"],
+  "author": "Hannes Verlis",
+  "license": "MIT"
+} 
